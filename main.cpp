@@ -27,9 +27,10 @@ int FindDaysInMonth(int year, int month) {
         bool isLeapYear = IsLeapYear(year);
     }
 }
-
 bool IsLeapYear(int year) {
-    return true;
+    if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
+        return true;
+    } else return false;
 }
 
 int DaysAlive(int year, int month, int day) {

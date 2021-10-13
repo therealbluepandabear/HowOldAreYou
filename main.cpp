@@ -18,7 +18,7 @@ int main() {
 
     return 0;
 }
-int FindDaysInMonth(int month) {
+int FindDaysInMonth(int year, int month) {
 
 }
 

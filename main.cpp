@@ -18,3 +18,6 @@ int main() {
 
     return 0;
 }
+int DaysAlive(int year, int month, int day) {
+
+}

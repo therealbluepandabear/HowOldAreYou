@@ -18,6 +18,10 @@ int main() {
 
     return 0;
 }
+int FindDaysInMonth(int month) {
+
+}
+
 int DaysAlive(int year, int month, int day) {
 
 }

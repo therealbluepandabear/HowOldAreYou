@@ -22,11 +22,17 @@ int main() {
 
     return 0;
 }
+
 int FindDaysInMonth(int year, int month) {
     if (month == 2) {
-        bool isLeapYear = IsLeapYear(year);
-    }
+        if (IsLeapYear(year)) {
+            return 29;
+        } else return 28;
+    } else if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 ||month == 10 || month == 12) {
+        return 31;
+    } else return 30;
 }
+
 bool IsLeapYear(int year) {
     if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
         return true;

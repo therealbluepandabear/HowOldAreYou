@@ -6,19 +6,21 @@ bool IsLeapYear(int year);
 int DaysAlive(int year, int month, int day);
 
 int main() {
-    int year, month, day;
+    std::cout << DaysAlive(2005, 11, 7) << std::endl;
 
-    std::cout << "Enter year of birth: " << std::endl;
-
-    std::cin >> year;
-
-    std::cout << "Enter month of birth: " << std::endl;
-
-    std::cin >> month;
-
-    std::cout << "Enter day of birth: " << std::endl;
-
-    std::cin >> day;
+//    int year, month, day;
+//
+//    std::cout << "Enter year of birth: " << std::endl;
+//
+//    std::cin >> year;
+//
+//    std::cout << "Enter month of birth: " << std::endl;
+//
+//    std::cin >> month;
+//
+//    std::cout << "Enter day of birth: " << std::endl;
+//
+//    std::cin >> day;
 
     return 0;
 }
@@ -39,6 +41,9 @@ bool IsLeapYear(int year) {
     } else return false;
 }
 
-int DaysAlive(int year, int month, int day) {
+int FindCurrentYear() {
 
+}
+
+int DaysAlive(int year, int month, int day) {
 }

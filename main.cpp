@@ -6,10 +6,11 @@ int FindDaysInMonth(int year, int month);
 bool IsLeapYear(int year);
 int DaysAlive(int year, int month, int day);
 int FindCurrentYear();
+int FindCurrentMonth();
+int FindCurrentDay();
 tm GetTm();
 
 int main() {
-    std::cout << DaysAlive(2005, 11, 7) << std::endl;
 
 //    int year, month, day;
 //
@@ -53,13 +54,16 @@ tm GetTm() {
 }
 
 int FindCurrentYear() {
-    std::chrono::system_clock::time_point now = std::chrono::system_clock::now();
-    time_t astime_t = std::chrono::system_clock::to_time_t(now);
-    tm astm = *localtime(&astime_t);
-
-    return astm.tm_year + 1900;
+    return GetTm().tm_year + 1900;
 }
 
+int FindCurrentMonth() {
+    return GetTm().tm_mon;
+}
+
+int FindCurrentDay() {
+    return GetTm().tm_mday;
+}
 
 
 int DaysAlive(int year, int month, int day) {

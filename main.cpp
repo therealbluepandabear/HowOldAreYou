@@ -4,13 +4,14 @@
 
 int FindDaysInMonth(int year, int month);
 bool IsLeapYear(int year);
-int DaysAlive(int year, int month, int day);
+tm GetTm();
 int FindCurrentYear();
 int FindCurrentMonth();
 int FindCurrentDay();
-tm GetTm();
+int DaysAlive(int year, int month, int day);
 
 int main() {
+    std::cout << DaysAlive(2005, 11, 7) << std::endl;
 
 //    int year, month, day;
 //
@@ -58,14 +59,34 @@ int FindCurrentYear() {
 }
 
 int FindCurrentMonth() {
-    return GetTm().tm_mon;
+    int val = GetTm().tm_mon;
+    return ++val;
 }
 
 int FindCurrentDay() {
     return GetTm().tm_mday;
 }
 
+// DOESN'T ACCOUNT FOR LEAP YEARS YET
 
 int DaysAlive(int year, int month, int day) {
+    int doffsetB = 0;
+    int doffsetC = 0;
 
+    int mOffsetB = 12 - month;
+
+    for (int i = 0; i < mOffsetB + 1; i++) {
+        doffsetB += FindDaysInMonth(year, month + i);
+    }
+    doffsetB -= day;
+
+    int moffsetC = 12 - FindCurrentMonth();
+
+    for (int i = 0; i < moffsetC + 1; i++) {
+        doffsetC += FindDaysInMonth(FindCurrentYear(), FindCurrentMonth() + i);
+    }
+    doffsetC -= FindCurrentDay();
+
+    int calc1 = (FindCurrentYear() - year) * 365;
+    return (calc1 + (doffsetB)) - doffsetC;
 }

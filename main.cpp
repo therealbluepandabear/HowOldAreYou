@@ -1,12 +1,14 @@
 
 #include <iostream>
+#include <chrono>
 
 int FindDaysInMonth(int year, int month);
 bool IsLeapYear(int year);
 int DaysAlive(int year, int month, int day);
+int FindCurrentYear();
 
 int main() {
-    std::cout << DaysAlive(2005, 11, 7) << std::endl;
+    std::cout << FindCurrentYear() << std::endl;
 
 //    int year, month, day;
 //
@@ -42,7 +44,11 @@ bool IsLeapYear(int year) {
 }
 
 int FindCurrentYear() {
+    std::chrono::system_clock::time_point now = std::chrono::system_clock::now();
+    time_t astime_t = std::chrono::system_clock::to_time_t(now);
+    tm astm = *localtime(&astime_t);
 
+    return astm.tm_year + 1900;
 }
 
 int DaysAlive(int year, int month, int day) {
